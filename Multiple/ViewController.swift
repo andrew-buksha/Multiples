@@ -39,6 +39,46 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             SumLabel.hidden = false
             AddButton.hidden = false
+            
+            numToSum = Int(AddText.text!)!
+            Sum = 0
+            currentSum = 0
+            
+            updateSum()
+        }
+    }
+    
+    func updateSum() {
+        SumLabel.text = "\(Sum) + \(numToSum) = \(currentSum)"
+    }
+    
+    func isGameOver() -> Bool {
+        if currentSum >= maxSum {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func resetGame() {
+        numToSum = 0
+        AddText.text = ""
+        
+        Multiples.hidden = false
+        AddText.hidden = false
+        PlayButton.hidden = false
+        
+        SumLabel.hidden = true
+        AddButton.hidden = true
+    }
+    
+    @IBAction func addButtonPressed(sender: UIButton!) {
+        currentSum = Sum + numToSum
+        updateSum()
+        Sum = currentSum
+        
+        if isGameOver() {
+            resetGame()
         }
     }
     
