@@ -8,18 +8,24 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var Multiples: UIImageView!
+    @IBOutlet weak var AddText: UITextField!
+    @IBOutlet weak var PlayButton: UIButton!
+    
+    @IBOutlet weak var SumLabel: UILabel!
+    @IBOutlet weak var AddButton: UIButton!
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    
+    
+    
 }
 
