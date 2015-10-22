@@ -45,7 +45,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
             currentSum = 0
             
             updateSum()
+            doSum()
         }
+    }
+    
+    func doSum() {
+        currentSum = Sum + numToSum
+        updateSum()
+        Sum = currentSum
     }
     
     func updateSum() {
@@ -73,9 +80,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addButtonPressed(sender: UIButton!) {
-        currentSum = Sum + numToSum
-        updateSum()
-        Sum = currentSum
+        doSum()
         
         if isGameOver() {
             resetGame()
